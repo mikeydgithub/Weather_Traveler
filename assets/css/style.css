@@ -1,0 +1,31 @@
+.app-title {
+    text-align: center;
+    background-image: linear-gradient(to right,blue,rgb(10, 10, 88));
+    color: white;
+    padding: 25px;
+}
+
+.card {
+    margin: 0 0 20px 0;
+    border: 3px solid black;
+    border-radius: .3rem;
+}
+
+.card-header {
+    color: black;
+    padding: 2.5%;
+    border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+}
+
+.btn {
+    font-size: 1.3rem;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border: black, solid;
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+    transform: translate(-1px, -1px);
+}

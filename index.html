@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-weather/2.0.0/openweather.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="assets\css\style.css">
+    <title>Weather Traveler</title>
+</head>
+<body class="flex-column min-100-vh">
+    <header class="hero">
+      <h1 class="app-title"> Weather Dashboard</h1>
+    </header>
+    
+    
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+            <h3 class="card-header">Search For A City:</h3>
+            <div class="card">
+                <form id="city-form" class="card-body">
+                    <label class="form-label" for="cityname"></label>
+                    <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" placeholder="San Diego" />
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+            <h2 class="subtitle">Showing Repositories for: <span id="city-search-term"></span></h2>
+            <div id="cities-container" class="list-group"></div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    
+
+
+
+
+
+
+
+    <script src="assets\js\script.js"></script>
+</body>
+</html>
