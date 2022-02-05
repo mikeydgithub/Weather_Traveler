@@ -15,36 +15,25 @@
       <h1 class="app-title"> Weather Dashboard</h1>
     </header>
     
-    
-    <main class="flex-row justify-space-between">
+    <div class="flex-row justify-space-between">
         <div class="col-12 col-md-4">
             <h3 class="card-header">Search For A City:</h3>
-            <div class="card">
+            <div id="search-card">
                 <form id="city-form" class="card-body">
                     <label class="form-label" for="cityname"></label>
-                    <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" placeholder="San Diego" />
-                    <button type="submit" class="btn">Search</button>
+                    <input name="cityname" id="cityName" type="search" autofocus="true" class="form-input" placeholder="San Diego" />
+                    <button id="searchBtn">Search</button>
                 </form>
             </div>
+        </div>          
+    </div>
+
+    <div class="col-12 col-md-8">
+        <div id="cities-container" class="list-group">
+            <ul id="cityList">
+            </ul>
         </div>
-
-        <div class="col-12 col-md-8">
-            <h2 class="subtitle">Showing Repositories for: <span id="city-search-term"></span></h2>
-            <div id="cities-container" class="list-group"></div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    </main>
+    </div>
 
     
 
