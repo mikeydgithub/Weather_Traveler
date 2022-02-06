@@ -19,10 +19,13 @@ var getCityNames = function(event) {
         //request was successful
         if (response.ok) {
             console.log(response);
+            //parse json
             response.json().then(function(data) {
-                console.log(data);
-            
-                getWeatherByCoord(data.coord.lat, data.coord.lon,)
+                //console.log(data);
+                //load weather
+                getWeatherByCoord(data.coord.lat, data.coord.lon);
+                //cerating search history
+                addHistory(data);
             });
         } else {
             alert("Error: " + response.statusText);
@@ -46,27 +49,40 @@ function getWeatherByCoord(latitude, longitude) {
     })
 }
 
-//create a function to indicate if a city name was put into the search.
-var displayCities = function(cities, searchTerm) {
+//create a function to add result to history
+var addHistory = function(searchResult) {
     // check if api returned any cities
-    if (cities.length === 0) {
+    /*if (cities.length === 0) {
         cityContainerEl.textContent = "No cities found.";
         return;
     }
     
-    citySearchTerm.textContent = searchTerm;
-    
+    citySearchTerm.textContent = searchResult.name; //search result name like japan is our button
+    */
+
     // created button element
     var btn = document.createElement("button");
-    // set text content to the button with search term
-    btn.textContent = searchTerm;
+    // set text content to the button with search result name
+    btn.textContent = searchResult.name;
     // created list element by creating element list item
     var listEl = document.createElement("li");
     // bundle everything together. appended the btn to the list element
     listEl.appendChild(btn);
     // added list element which contains the button to the existing ul which is city-list
-    document.getElementById(cityList).appendChild(listEl);
+    document.getElementById("cityList").appendChild(listEl);
 }
+
+// Get item with provided key from local storage
+//null return as an empty collection when using as array
+function storageItem(key, asArray = false){
+    var item = localStorage.getItem(key);
+    //use if it can be returned as an array or you return just as
+    if ( asArray && item === null){
+        item = [];
+    }
+    return item;
+} 
+    
 
 
 document.querySelector("#searchBtn").addEventListener("click", getCityNames)
