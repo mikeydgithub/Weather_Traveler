@@ -188,8 +188,8 @@ function weatherItem(id){
 
 //Create weather card template
 function weatherCard(weather, isCurrent = false){
-    //var weatherDate;
-    var imgSrc = "https://img.icons8.com/emoji/96/000000/sun-emoji.png";
+    var weatherDescription = isCurrent ? weather.current.weather[0] : weather.weather[0];
+    var imgSrc = `http://openweathermap.org/img/wn/${weatherDescription.icon}@2x.png`;
 
     var date = isCurrent ? weather.current.dt : weather.dt;
     var windSpeed = isCurrent ? weather.current.wind_speed : weather.wind_speed;
@@ -204,8 +204,8 @@ function weatherCard(weather, isCurrent = false){
         <div class="temp">${isCurrent ? weather.current.temp : `[${weather.temp.min},${weather.temp.max}]`}<sup>&deg;</sup></div>
         <div class="row">
             <div class="col-4">
-                <div class="header">General</div>
-                <div class="value">Sunny</div>
+                <div class="header">Detail</div>
+                <div class="value">${weatherDescription.description}</div>
             </div>
             <div class="col-4">
                 <div class="header">Wind</div>
