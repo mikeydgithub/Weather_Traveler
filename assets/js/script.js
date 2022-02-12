@@ -89,7 +89,6 @@ var getCityWeather = function(event) {
     .then(function(response){
         //request was successful
         if (response.ok) {
-<<<<<<< HEAD
             console.log(response);
             //parse json
             response.json().then(function(data) {
@@ -98,17 +97,6 @@ var getCityWeather = function(event) {
                 getWeatherByCoord(data.coord.lat, data.coord.lon);
                 //cerating search history
                 addHistory(data);
-=======
-            //parse as json
-            response.json().then(function(data) {
-                console.log(data);
-                //Load weather for search results
-                getWeatherByCoord(data.coord.lat, data.coord.lon).then(
-                    //Update results
-                    weather => upsertWeather(data, weather)
-                );
-                
->>>>>>> develop
             });
         } else {
             alert("Error: " + response.statusText);
@@ -133,7 +121,6 @@ function getWeatherByCoord(latitude, longitude) {
     });
 }
 
-<<<<<<< HEAD
 //create a function to add result to history
 var addHistory = function(searchResult) {
     // check if api returned any cities
@@ -169,42 +156,6 @@ function storageItem(key, asArray = false){
 } 
     
 
-=======
-//Select weather item
-function selectWeather(item){
-
-    //Get list items
-    var listItems = weatherList.querySelectorAll("li");
-
-    //Set active/load selected item
-    var defaultItemClass = item.getAttribute("data-default") ?? "bg-secondary";
-    setActive(item, true, defaultItemClass);
-
-    //De-select other items 
-    listItems.forEach(weatherItem => {    
-        if(weatherItem != item){
-            setActive(weatherItem, false, defaultItemClass);
-        }
-    });
-
-    var weather = JSON.parse(localStorage.getItem(item.id.replace("li-", "")));
-
-    //Load weather read-out
-    //Set current weath display
-    currentWeather.innerHTML = '';
-    var currentCard = weatherCard(weather, true); 
-    currentWeather.appendChild(currentCard);
-
-    //Set 5-day forecast cards
-    forecast.innerHTML = innerHTML = '';
-    for(var i = 1; i < 6; i++){
-        forecast.appendChild(new weatherCard(weather.daily[i]));
-    }
-}
-
-//Add or update weather for search result
-var upsertWeather = function(searchResult, weather) {
->>>>>>> develop
 
     //Check storage for existing weather
     var storedWeather = localStorage.getItem(searchResult.name);
