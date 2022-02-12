@@ -10,39 +10,42 @@
     <link rel="stylesheet" href="assets\css\style.css">
     <title>Weather Traveler</title>
 </head>
-<body class="flex-column min-100-vh">
+<body>
     <header class="hero">
       <h1 class="app-title"> Weather Dashboard</h1>
     </header>
-    
-    <div class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
-            <h3 class="card-header">Search For A City:</h3>
-            <div id="search-card">
-                <form id="city-form" class="card-body">
+    <div class="container">
+        <div class="row">
+          <div class="col-3" id="side-menu">
+            <div class="row bottom-border">
+                <h3 class="card-header">Search For A City:</h3>
+                <form id="city-form" class="bottom-margin">
                     <label class="form-label" for="cityname"></label>
                     <input name="cityname" id="cityName" type="search" autofocus="true" class="form-input" placeholder="San Diego" />
                     <button id="searchBtn">Search</button>
                 </form>
             </div>
-        </div>          
-    </div>
-
-    <div class="col-12 col-md-8">
-        <div id="cities-container" class="list-group">
-            <ul id="cityList">
-            </ul>
-        </div>
-    </div>
-
-    
-
-
-
-
-
-
-
+            <div id="cities-container" class="row w-100">
+                <ul id="weatherList" class="list-group">
+                </ul>
+            </div>
+          </div>
+          <div class="col-9" id="weather-menu">
+            <div class="row">
+                <div class="col">
+                    <div class="row"><h3 class="card-header">Current weather</h3></div>      
+                    <div id="current-weather"class="row"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row"><h3 class="card-header">5 day forecast</h3></div>
+                    <div id="forecast" class="row"></div>
+                </div>
+            </div>
+          </div>
+        </div>    
+      </div>
     <script src="assets\js\script.js"></script>
 </body>
 </html>
