@@ -30,8 +30,8 @@ SO THAT I can plan a trip accordingly
 
 # Website
 
-https://github.com/mikeydgithub/Weather_Traveler
-https://mikeydgithub.github.io/Weather_Traveler/
+* https://github.com/mikeydgithub/Weather_Traveler
+* https://mikeydgithub.github.io/Weather_Traveler/
 
 ![weather_traveler screenshot](https://user-images.githubusercontent.com/94988620/153719936-a7ff7699-783d-4ec3-bcea-177105a21671.JPG)
 
