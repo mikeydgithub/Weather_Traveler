@@ -89,14 +89,15 @@ var getCityWeather = function(event) {
     .then(function(response){
         //request was successful
         if (response.ok) {
-            console.log(response);
-            //parse json
+            //parse as json
             response.json().then(function(data) {
-                //console.log(data);
-                //load weather
-                getWeatherByCoord(data.coord.lat, data.coord.lon);
-                //cerating search history
-                addHistory(data);
+                console.log(data);
+                //Load weather for search results
+                getWeatherByCoord(data.coord.lat, data.coord.lon).then(
+                    //Update results
+                    weather => upsertWeather(data, weather)
+                );
+                
             });
         } else {
             alert("Error: " + response.statusText);
@@ -121,41 +122,40 @@ function getWeatherByCoord(latitude, longitude) {
     });
 }
 
-//create a function to add result to history
-var addHistory = function(searchResult) {
-    // check if api returned any cities
-    /*if (cities.length === 0) {
-        cityContainerEl.textContent = "No cities found.";
-        return;
-    }
-    
-    citySearchTerm.textContent = searchResult.name; //search result name like japan is our button
-    */
+//Select weather item
+function selectWeather(item){
 
-    // created button element
-    var btn = document.createElement("button");
-    // set text content to the button with search result name
-    btn.textContent = searchResult.name;
-    // created list element by creating element list item
-    var listEl = document.createElement("li");
-    // bundle everything together. appended the btn to the list element
-    listEl.appendChild(btn);
-    // added list element which contains the button to the existing ul which is city-list
-    document.getElementById("cityList").appendChild(listEl);
+    //Get list items
+    var listItems = weatherList.querySelectorAll("li");
+
+    //Set active/load selected item
+    var defaultItemClass = item.getAttribute("data-default") ?? "bg-secondary";
+    setActive(item, true, defaultItemClass);
+
+    //De-select other items 
+    listItems.forEach(weatherItem => {    
+        if(weatherItem != item){
+            setActive(weatherItem, false, defaultItemClass);
+        }
+    });
+
+    var weather = JSON.parse(localStorage.getItem(item.id.replace("li-", "")));
+
+    //Load weather read-out
+    //Set current weath display
+    currentWeather.innerHTML = '';
+    var currentCard = weatherCard(weather, true); 
+    currentWeather.appendChild(currentCard);
+
+    //Set 5-day forecast cards
+    forecast.innerHTML = innerHTML = '';
+    for(var i = 1; i < 6; i++){
+        forecast.appendChild(new weatherCard(weather.daily[i]));
+    }
 }
 
-// Get item with provided key from local storage
-//null return as an empty collection when using as array
-function storageItem(key, asArray = false){
-    var item = localStorage.getItem(key);
-    //use if it can be returned as an array or you return just as
-    if ( asArray && item === null){
-        item = [];
-    }
-    return item;
-} 
-    
-
+//Add or update weather for search result
+var upsertWeather = function(searchResult, weather) {
 
     //Check storage for existing weather
     var storedWeather = localStorage.getItem(searchResult.name);

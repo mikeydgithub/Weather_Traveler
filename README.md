@@ -1,46 +1,43 @@
-# Weather_Traveler
+## Weather_Traveler
 
-# 06 Server-Side APIs: Weather Dashboard
+# Purpose
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
-
-Use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities. Read through the documentation for setup and usage instructions. You will use `localStorage` to store any persistent data.
-
-## User Story
-
-```
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
-```
 
-## Acceptance Criteria
+# Built With
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+* Javascript
+* HTML
+* CSS
 
-The following image demonstrates the application functionality:
+# How it works
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+* A weather dashboard is formed with inputs for you to enter what city, state, or country in which you want to find the weather for.
+* When you search for a location you can find the current and future conditions for that location up to 5 days.
+* You will get back information about the 
 
-## Review
+    * Current temperature.
+    * Details on weather condition and icon representation.
+    * Wind speed with it's direction.
+    
+* You can track multiple locations. After your your search is entered it is saved and can be reselected to go back to.
 
-You are required to submit the following for review:
+# Result
 
-* The URL of the deployed application.
+* A website that tells you the current weather and it's future weather conditions using openweathermap API to fetch data from.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a high-quality README describing the project.
+# Website
 
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+https://github.com/mikeydgithub/Weather_Traveler
+https://mikeydgithub.github.io/Weather_Traveler/
+
+![weather_traveler screenshot](https://user-images.githubusercontent.com/94988620/153719936-a7ff7699-783d-4ec3-bcea-177105a21671.JPG)
+
+
+
+# Made by
+
+* Michael Diamond
+* Edward Flowers (tutored and gave helpful instructions)
